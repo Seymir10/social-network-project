@@ -1,0 +1,25 @@
+.navigation_menu {
+    grid-area: NAVIGATION_MENU;
+    background-color: skyblue;
+    height: 480px;
+    padding-right: 30px;
+
+}
+
+.navigation_menu ul {
+    list-style-type: none;
+}
+
+.item {
+    color: grey;
+    font-size: 20px;
+}
+
+.item a {
+    text-decoration: none;
+}
+
+.active {
+    color: white;
+    font-weight: bold;
+}

@@ -1,0 +1,18 @@
+.App {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+          "HEADER HEADER"
+          "NAVIGATION_MENU CONTENT";
+  grid-gap: 10px;
+}
+
+
+
+
+
+
+
+
+

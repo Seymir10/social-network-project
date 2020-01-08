@@ -1,0 +1,8 @@
+.item {
+    color: red;
+    list-style-type: none;
+}
+
+.item img {
+    width: 100px;
+}
