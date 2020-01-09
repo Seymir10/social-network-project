@@ -12,18 +12,19 @@ import Settings from "./components/Settings/Settings";
 
 
 const App = (props) => {
+
     return (
         <BrowserRouter>
             <div className="App">
                 <Header/>
-                <Navbar/>
+                <Navbar state={props.state.sidebarPage}/>
 
                 <div className="content">
                     <Route exact path="/" render={() => (
                         <Redirect to="/profile"/>
                     )}/> {/*In case of a default URL redirect to profile*/}
-                    <Route render={() => <Profile postsData={props.postsData}/>} path='/profile'/>
-                    <Route exact component={Dialogs} path='/dialogs' />
+                    <Route render={() => <Profile state={props.state.profilePage}/>} path='/profile'/>
+                    <Route exact render={() => <Dialogs state={props.state.dialogsPage} />} path='/dialogs' />
                     <Route component={News} path='/news' />
                     <Route component={Music} path='/music' />
                     <Route component={Settings} path='/settings' />
