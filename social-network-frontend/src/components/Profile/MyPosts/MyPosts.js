@@ -3,14 +3,19 @@ import my_posts from './MyPosts.module.css'
 import Post from "../Post/Post";
 
 const MyPosts = (props) => {
-
+    let newPostElement = React.createRef();
+    let addPost = () => {
+        let text = newPostElement.current.value;
+        props.addPost(text);
+        debugger
+    }
 
     return (
         <main className={my_posts.postsBlock}>
             <div>
                 <h3>My Posts</h3>
-                <div><textarea></textarea></div>
-                <div><button>post</button></div>
+                <div><textarea ref={newPostElement}></textarea></div>
+                <div><button onClick={addPost}>post</button></div>
                 <div>
                     New Post
                 </div>
@@ -22,6 +27,7 @@ const MyPosts = (props) => {
                                 return <Post message={p.message} likes={p.likes} dislikes={p.dislikes}/>
                             })
                         }
+
                     </ul>
                 </div>
             </div>

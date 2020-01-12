@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 
-import {BrowserRouter, Redirect, Route} from "react-router-dom";
+import {Redirect, Route} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -14,7 +14,6 @@ import Settings from "./components/Settings/Settings";
 const App = (props) => {
 
     return (
-        <BrowserRouter>
             <div className="App">
                 <Header/>
                 <Navbar state={props.state.sidebarPage}/>
@@ -23,14 +22,20 @@ const App = (props) => {
                     <Route exact path="/" render={() => (
                         <Redirect to="/profile"/>
                     )}/> {/*In case of a default URL redirect to profile*/}
-                    <Route render={() => <Profile state={props.state.profilePage}/>} path='/profile'/>
+                    <Route render={() => <Profile
+                        state={props.state.profilePage} addPost={props.addPost}
+                    />} path='/profile'/>
+
                     <Route exact render={() => <Dialogs state={props.state.dialogsPage} />} path='/dialogs' />
+
                     <Route component={News} path='/news' />
+
                     <Route component={Music} path='/music' />
+
                     <Route component={Settings} path='/settings' />
                 </div>
             </div>
-        </BrowserRouter>
+
 
     )
 }

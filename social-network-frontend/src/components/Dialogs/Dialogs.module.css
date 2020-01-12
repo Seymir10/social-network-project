@@ -38,3 +38,12 @@
 .dialog a {
     text-decoration: none;
 }
+
+.sendMessageBox {
+    margin-left: 240px;
+}
+
+.sendMessageBox textarea {
+    width: 500px;
+    height: 80px;
+}
