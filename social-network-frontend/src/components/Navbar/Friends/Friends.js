@@ -3,7 +3,7 @@ import Friend from "./Friend";
 import style from './../Navbar.module.css'
 
 const Friends = (props) => {
-    debugger;
+
     return (
         <div className={style.friends}>
             {

@@ -24,6 +24,7 @@ const App = (props) => {
                     )}/> {/*In case of a default URL redirect to profile*/}
                     <Route render={() => <Profile
                         state={props.state.profilePage} addPost={props.addPost}
+                        updatePostText={props.updatePostText}
                     />} path='/profile'/>
 
                     <Route exact render={() => <Dialogs state={props.state.dialogsPage} />} path='/dialogs' />

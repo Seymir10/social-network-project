@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 let state = {
     profilePage : {
         postsData : [
@@ -19,7 +21,9 @@ let state = {
                 likes: 12,
                 dislikes: 11,
             }
-        ]
+        ],
+
+        newPostText : ''
     },
 
     dialogsPage: {
@@ -59,6 +63,13 @@ export let addPost = (postMessage) => {
     }
 
     state.profilePage.postsData.push(newPost);
+    rerenderEntireTree(state);
+    state.profilePage.newPostText = '';
+}
+
+export let updatePostText = (postText) => {
+    state.profilePage.newPostText = postText;
+    rerenderEntireTree(state);
 }
 
 export default state;
