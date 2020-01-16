@@ -3,12 +3,20 @@ import s from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 
+
 const Dialogs = (props) => {
 
     let newMessageElement = React.createRef();
+
     let sendMessage = () => {
         let text = newMessageElement.current.value;
-        alert(text);
+        props.addNewMessage(text);
+    }
+
+    let onMessageUpdate = () => {
+        let text = newMessageElement.current.value;
+        props.updateNewMessageText(text);
+        console.log(props.text)
     }
 
     return (
@@ -32,7 +40,7 @@ const Dialogs = (props) => {
             </div>
 
             <div className={s.sendMessageBox}>
-                <textarea ref={newMessageElement}></textarea><br/>
+                <textarea ref={newMessageElement} onChange={onMessageUpdate} value={props.text}/><br/>
                 <button onClick={sendMessage}>Send</button>
             </div>
 

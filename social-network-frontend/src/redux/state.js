@@ -40,7 +40,9 @@ let state = {
             {id: 1, message: 'Hey'},
             {id: 2, message: 'Hey! Wassup?'},
             {id: 3, message: 'Tired...((('}
-        ]
+        ],
+
+        newMessageText: ''
 
 
     },
@@ -53,7 +55,7 @@ let state = {
             ]
     }
 }
-
+window.state = state;
 export let addPost = (postMessage) => {
     let newPost = {
         id : 4,
@@ -69,6 +71,22 @@ export let addPost = (postMessage) => {
 
 export let updatePostText = (postText) => {
     state.profilePage.newPostText = postText;
+    rerenderEntireTree(state);
+}
+
+export let sendMessage = (newMessageText) => {
+    let newMessage = {
+        id: 4,
+        message: newMessageText
+    }
+
+    state.dialogsPage.messagesData.push(newMessage);
+    rerenderEntireTree(state);
+    state.dialogsPage.newMessageText = '';
+}
+
+export let updateNewMessageText = (newMes) => {
+    state.dialogsPage.newMessageText = newMes;
     rerenderEntireTree(state);
 }
 

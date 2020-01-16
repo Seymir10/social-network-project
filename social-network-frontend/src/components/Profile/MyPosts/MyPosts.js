@@ -12,6 +12,7 @@ const MyPosts = (props) => {
     let onPostUpdate = () => {
         let text = newPostElement.current.value;
         props.updatePostText(text);
+        console.log(props.newPostText)
     }
 
     return (

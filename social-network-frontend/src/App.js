@@ -27,7 +27,11 @@ const App = (props) => {
                         updatePostText={props.updatePostText}
                     />} path='/profile'/>
 
-                    <Route exact render={() => <Dialogs state={props.state.dialogsPage} />} path='/dialogs' />
+                    <Route exact render={() => <Dialogs state={props.state.dialogsPage}
+                        addNewMessage={props.sendMessage} updateNewMessageText={props.updateNewMessageText}
+                                                        text={props.state.dialogsPage.newMessageText}
+
+                    />} path='/dialogs' />
 
                     <Route component={News} path='/news' />
 
