@@ -23,8 +23,7 @@ const App = (props) => {
                         <Redirect to="/profile"/>
                     )}/> {/*In case of a default URL redirect to profile*/}
                     <Route render={() => <Profile
-                        state={props.state.profilePage} addPost={props.addPost}
-                        updatePostText={props.updatePostText}
+                        state={props.state.profilePage} dispatch={props.dispatch}
                     />} path='/profile'/>
 
                     <Route exact render={() => <Dialogs state={props.state.dialogsPage}

@@ -6,8 +6,7 @@ import store from "./redux/store";
 import {BrowserRouter} from "react-router-dom";
 
 export let rerenderEntireTree = (state) => ReactDOM.render(<BrowserRouter>
-    <App state={state} addPost={store.addPost.bind(store)}
-         updatePostText={store.updatePostText.bind(store)}
+    <App state={state} dispatch={store.dispatch.bind(store)}
          sendMessage={store.sendMessage.bind(store)}
          updateNewMessageText={store.updateNewMessageText.bind(store)}/>
 </BrowserRouter> , document.getElementById('root'));
