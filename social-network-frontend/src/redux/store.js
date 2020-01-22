@@ -81,7 +81,7 @@ let store = {
         if (action.type === 'ADD-POST') {
             let newPost = {
                 id: 4,
-                message: action.text,
+                message: this.getState().profilePage.newPostText,
                 likes: 0,
                 dislikes: 0,
             }
