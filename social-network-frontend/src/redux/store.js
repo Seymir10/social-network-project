@@ -78,7 +78,7 @@ let store = {
     dispatch(action) {
 
         debugger
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 4,
                 message: this.getState().profilePage.newPostText,
@@ -89,7 +89,7 @@ let store = {
             this.getState().profilePage.postsData.unshift(newPost);
             this._callSubscriber(this.getState());
             this.getState().profilePage.newPostText = '';
-        } else if (action.type === 'UPDATE-POST-TEXT') {
+        } else if (action.type === UPDATE_POST_EXT) {
             this.getState().profilePage.newPostText = action.newText;
             this._callSubscriber(this.getState());
         }
@@ -115,6 +115,18 @@ let store = {
         this._callSubscriber = observer;
     }
 }
+
+export const addPostActionCreator = () => ({
+    type: ADD_POST
+});
+
+export const onPostUpdateActionCreator = (text) => ({
+    type: UPDATE_POST_EXT, newText: text
+})
+
+const ADD_POST = 'ADD-POST';
+const UPDATE_POST_EXT = 'UPDATE-POST-TEXT';
+
 
 window.store = store;
 export default store;
