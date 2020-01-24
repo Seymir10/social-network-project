@@ -2,19 +2,18 @@ import React from "react";
 import s from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {onMessageTextUpdateActionCreator, sendMessageActionCreator} from "../../redux/store";
+import {onMessageTextUpdateActionCreator, sendMessageActionCreator} from "../../redux/dialogsReducer";
 
 
 const Dialogs = (props) => {
-
-    let newMessageElement = React.createRef();
+    let newMessageBodyText = props.text;
 
     let sendMessage = () => {
         props.dispatch(sendMessageActionCreator());
     }
 
-    let onMessageUpdate = () => {
-        let text = newMessageElement.current.value;
+    let onMessageUpdate = (e) => {
+        let text = e.target.value;
         props.dispatch(onMessageTextUpdateActionCreator(text));
     }
 
@@ -39,7 +38,7 @@ const Dialogs = (props) => {
             </div>
 
             <div className={s.sendMessageBox}>
-                <textarea ref={newMessageElement} onChange={onMessageUpdate} value={props.text}/><br/>
+                <textarea onChange={onMessageUpdate} value={newMessageBodyText}/><br/>
                 <button onClick={sendMessage}>Send</button>
             </div>
 
