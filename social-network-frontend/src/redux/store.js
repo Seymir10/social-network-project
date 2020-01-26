@@ -82,7 +82,7 @@ let store = {
     dispatch(action) {
         this.getState().profilePage = profileReducer(this.getState().profilePage, action);
         this.getState().dialogsPage = dialogsReducer(this.getState().dialogsPage, action);
-        this._callSubscriber();
+        this._callSubscriber(this.getState());
     },
 
     subscribe(observer) {

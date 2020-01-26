@@ -10,13 +10,39 @@ export const onPostUpdateActionCreator = (text) => ({
 });
 
 
-const profileReducer = (state, action) => {
+let initialState = {
+    postsData: [
+        {
+            id: 1,
+            message: 'Hi how are you?',
+            likes: 4,
+            dislikes: 1,
+        },
+        {
+            id: 2,
+            message: 'I\'ve been graduated from university!',
+            likes: 12,
+            dislikes: 2,
+        },
+        {
+            id: 3,
+            message: 'The weather sucks...',
+            likes: 12,
+            dislikes: 11,
+        }
+    ],
 
+    newPostText: ''
+}
+
+
+const profileReducer = (state = initialState, action) => {
+    debugger
     switch (action.type) {
         case ADD_POST:
             let newPost = {
                 id: 4,
-                message: this.getState().profilePage.newPostText,
+                message: state.newPostText,
                 likes: 0,
                 dislikes: 0,
             }

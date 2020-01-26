@@ -10,7 +10,26 @@ export const onMessageTextUpdateActionCreator = (newMsg) => ({
     newMsg: newMsg
 });
 
-const dialogsReducer = (state, action) => {
+let initialState = {
+    dialogsData: [
+        {id: 1, name: 'Samir', user_photo: 'https://www.learnaf.com/assets/links/images/user.png'},
+        {id: 2, name: 'Sakina', user_photo: 'https://www.learnaf.com/assets/links/images/user.png'},
+        {id: 3, name: 'Gektor', user_photo: 'https://www.learnaf.com/assets/links/images/user.png'},
+        {id: 4, name: 'Asad', user_photo: 'https://www.learnaf.com/assets/links/images/user.png'},
+        {id: 5, name: 'Gulten', user_photo: 'https://www.learnaf.com/assets/links/images/user.png'},
+        {id: 6, name: 'Aytach', user_photo: 'https://www.learnaf.com/assets/links/images/user.png'}
+    ],
+
+    messagesData: [
+        {id: 1, message: 'Hey'},
+        {id: 2, message: 'Hey! Wassup?'},
+        {id: 3, message: 'Tired...((('}
+    ],
+
+    newMessageText: ''
+}
+
+const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_MESSAGE_TEXT:
             state.newMessageText = action.newMsg;
